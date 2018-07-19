@@ -1,0 +1,41 @@
+﻿@model IEnumerable<JunBoard.Models.Board>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>게시판 CRUD</h2>
+
+<p>
+    @Html.ActionLink("작성하기", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Title)*@
+			제목
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Writer)*@
+			작성자
+        </th>
+      
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+			<a href="/Home/Details/@item.Board_Num"> @item.Title</a>
+</td>
+        <td>
+            @item.Writer
+        </td>
+		@*<td>
+			<a href="/Home/Edit/@item.Board_Num">수정</a>
+			<a href="/Home/Delete/@item.Board_Num">삭제</a>
+		</td>*@
+    </tr>
+}
+
+</table>
